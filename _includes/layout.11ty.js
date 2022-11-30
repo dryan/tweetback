@@ -79,6 +79,7 @@ module.exports = async function (data) {
     }
 		<link rel="stylesheet" href="https://unpkg.com/@dryan-llc/mnml.css">
 		<link rel="stylesheet" href="/tweets/assets/style.css">
+    <link rel="icon" href="https://dryan.com/favicon.svg">
 		<script src="/tweets/assets/script.js" type="module"></script>
 		<script src="/tweets/assets/is-land.js" type="module"></script>
 		${
