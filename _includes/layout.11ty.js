@@ -15,7 +15,7 @@ module.exports = async function (data) {
 
   let navHtml = "";
   if (data.page.fileSlug === "tweet-pages" || data.page.fileSlug === "newest") {
-    let newestHref = "/newest/";
+    let newestHref = "/tweets/newest/";
     let previousHref = data.pagination.previousPageHref;
     let nextHref = data.pagination.nextPageHref;
 
