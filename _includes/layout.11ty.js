@@ -70,17 +70,17 @@ module.exports = async function (data) {
 		${
       data.page.fileSlug !== "tweet-pages"
         ? `
-			<link rel="stylesheet" href="/assets/chartist.min.css">
-			<link rel="stylesheet" href="/assets/chart.css">
-			<script src="/assets/chartist.min.js"></script>
-			<script src="/assets/chart.js"></script>
+			<link rel="stylesheet" href="/tweets/assets/chartist.min.css">
+			<link rel="stylesheet" href="/tweets/assets/chart.css">
+			<script src="/tweets/assets/chartist.min.js"></script>
+			<script src="/tweets/assets/chart.js"></script>
 		`
         : ""
     }
 		<link rel="stylesheet" href="https://unpkg.com/@dryan-llc/mnml.css">
-		<link rel="stylesheet" href="/assets/style.css">
-		<script src="/assets/script.js" type="module"></script>
-		<script src="/assets/is-land.js" type="module"></script>
+		<link rel="stylesheet" href="/tweets/assets/style.css">
+		<script src="/tweets/assets/script.js" type="module"></script>
+		<script src="/tweets/assets/is-land.js" type="module"></script>
 		${
       data.page.fileSlug === "newest"
         ? `<link rel="canonical" href="/${data.tweet.id_str}/">

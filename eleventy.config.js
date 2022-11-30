@@ -5,12 +5,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
 
-  eleventyConfig.addPassthroughCopy("assets/");
-  eleventyConfig.addPassthroughCopy("img/");
+  eleventyConfig.addPassthroughCopy({ "assets/": "tweets/assets/" });
+  eleventyConfig.addPassthroughCopy({ "img/": "tweets/img/" });
   eleventyConfig.addPassthroughCopy({
-    "node_modules/chartist/dist/chartist.min.css": "assets/chartist.min.css",
-    "node_modules/chartist/dist/chartist.min.js": "assets/chartist.min.js",
-    "node_modules/@11ty/is-land/is-land.js": "assets/is-land.js",
+    "node_modules/chartist/dist/chartist.min.css": "tweets/assets/chartist.min.css",
+    "node_modules/chartist/dist/chartist.min.js": "tweets/assets/chartist.min.js",
+    "node_modules/@11ty/is-land/is-land.js": "tweets/assets/is-land.js",
   });
 
   eleventyConfig.addJavaScriptFunction("avatarUrl", function avatarUrl(url) {
