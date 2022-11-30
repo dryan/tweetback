@@ -1,0 +1,35 @@
+name: DRyan Tweets Deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_DEFAULT_REGION: us-east-1
+  AWS_REGION: us-east-1
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+jobs:
+  deploy:
+    name: DRyan Tweets Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+      - name: Build site
+        working-directory: ./
+        run: |
+          npm ci
+          npm run import
+          npx @11ty/eleventy
+      - name: Install Python dependencies
+        run: |
+          pip install -U pip
+          pip install d3ploy
+      - name: Sync site to S3
+        run: d3ploy
+        working-directory: ./

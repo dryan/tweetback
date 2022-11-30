@@ -2,23 +2,31 @@ const Twitter = require("./src/twitter");
 const dataSource = require("./src/DataSource");
 
 class Recent extends Twitter {
-	data() {
-		return {
-			layout: "layout.11ty.js"
-		};
-	}
+  data() {
+    return {
+      layout: "layout.11ty.js",
+      permalink: "/tweets/recent/",
+    };
+  }
 
-	getRecentTweets(tweets) {
-		return tweets.filter(tweet => this.isOriginalPost(tweet)).sort(function(a,b) {
-			return b.date - a.date;
-		}).slice(0, 40);
-	}
+  getRecentTweets(tweets) {
+    return tweets
+      .filter((tweet) => this.isOriginalPost(tweet))
+      .sort(function (a, b) {
+        return b.date - a.date;
+      })
+      .slice(0, 40);
+  }
 
-	async render(data) {
-		let tweets = await dataSource.getAllTweets();
-		let tweetHtml = await Promise.all(this.getRecentTweets(tweets).map(tweet => this.renderTweet(tweet, {showSentiment: true})));
+  async render(data) {
+    let tweets = await dataSource.getAllTweets();
+    let tweetHtml = await Promise.all(
+      this.getRecentTweets(tweets).map((tweet) =>
+        this.renderTweet(tweet, { showSentiment: true })
+      )
+    );
 
-		return `<h2>Most Recent 40 Tweets</h2>
+    return `<h2>Most Recent 40 Tweets</h2>
 		<p>Not including replies or retweets or mentions.</p>
 		<h3>Mood</h3>
 		<div class="twtr-sentiment js">
@@ -36,7 +44,7 @@ class Recent extends Twitter {
 		var series = getSentimentsFromList( '.tweets' );
 		makeSentimentChart( '.twtr-sentiment-chart', series );
 		</script>`;
-	}
+  }
 }
 
 module.exports = Recent;

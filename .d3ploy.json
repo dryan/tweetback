@@ -1,0 +1,19 @@
+{
+  "environments": {
+    "default": {
+      "bucket_name": "dryan-tweets",
+      "local_path": "./_site"
+    }
+  },
+  "defaults": {
+    "caches": {
+      "text/css": 31536000,
+      "text/javascript": 31536000,
+      "application/json": 31536000,
+      "image/*": 31536000,
+      "text/html": 0,
+      "application/manifest+json": 86400
+    },
+    "acl": "public-read"
+  }
+}
