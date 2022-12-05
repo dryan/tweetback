@@ -117,6 +117,10 @@ module.exports = async function (data) {
 		<footer>
 			<p>An open source project from <a href="https://github.com/tweetback">tweetback</a>.</p>
 		</footer>
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript>
+      <img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" />
+    </noscript>
 	</body>
 </html>`;
 };
